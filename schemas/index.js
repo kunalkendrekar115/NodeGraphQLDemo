@@ -37,6 +37,14 @@ schemaComposer.Query.addFields({
     args: { id: "Int" },
     resolve: (_, { id }) => getUsers().find(({ id: userId }) => id === userId)
   },
+
+  Company: {
+    type: CompanyTC,
+    args: { id: "Int!" },
+    resolve: (_, { id }) =>
+      getCompanies().find(({ id: companyId }) => companyId === id)
+  },
+
   Companies: {
     type: [CompanyTC],
     resolve: () => getCompanies()
